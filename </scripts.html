@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VantaScripts - Features</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      background-color: #1c1c1c;
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+      width: 90%;
+      max-width: 500px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    .popup-content {
+      position: relative;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      color: #fff;
+    }
+
+    .popup ul {
+      padding-left: 1.2rem;
+      text-align: left;
+    }
+
+    .popup li {
+      margin-bottom: 0.5rem;
+    }
+
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .buy-button {
+      background-color: #6a00ff;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background-color 0.2s ease-in-out, transform 0.2s;
+    }
+
+    .buy-button:hover {
+      background-color: #5700cc;
+      transform: scale(1.05);
+    }
+
+    .trigger-buttons button {
+      margin: 0.5rem;
+      padding: 0.75rem 1.2rem;
+      border-radius: 6px;
+      border: none;
+      background-color: #222;
+      color: white;
+      font-weight: 600;
+      transition: background 0.2s ease;
+      cursor: pointer;
+    }
+
+    .trigger-buttons button:hover {
+      background-color: #333;
+    }
+
+    @media (max-width: 600px) {
+      .popup {
+        padding: 1rem;
+      }
+
+      .buy-button, .trigger-buttons button {
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Choose Your Script</h1>
+  <div class="trigger-buttons">
+    <button onclick="openPopup('lite')">Buy Lite Script</button>
+    <button onclick="openPopup('full')">Buy Full Script</button>
+  </div>
+
+  <!-- Lite Popup -->
+  <div class="popup" id="lite-popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('lite')">&times;</span>
+      <h2>Lite Script Features - $4.99</h2>
+      <ul>
+        <li>✅ <strong>Recoil:</strong> Recoil On, Hipfire, Legit Mode, Full Auto, Control X/Y</li>
+        <li>🔧 <strong>Settings:</strong> Zoom Hack, Game FOV, Sensitivity, ADS Sens</li>
+        <li>⌨️ <strong>Keybinds:</strong> Custom Bind Key</li>
+        <li>📁 <strong>Folder:</strong> Config Create/Delete/Save/Load/Reset</li>
+      </ul>
+      <button class="buy-button" onclick="window.location.href='https://example.com/lite-buy'">Buy Now</button>
+    </div>
+  </div>
+
+  <!-- Full Popup -->
+  <div class="popup" id="full-popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('full')">&times;</span>
+      <h2>Full Script Features - $12.99</h2>
+      <ul>
+        <li>✅ <strong>Everything in Lite</strong> + All Premium Features</li>
+        <li>🎯 <strong>Anti-Recoil Profiles:</strong> Auto-switching, per-gun configs</li>
+        <li>🧠 <strong>Advanced Settings:</strong> Smooth Aim Assist, Triggerbot, etc.</li>
+        <li>☁️ <strong>Cloud Sync:</strong> Save configs online & load anywhere</li>
+      </ul>
+      <button class="buy-button" onclick="window.location.href='https://example.com/full-buy'">Buy Now</button>
+    </div>
+  </div>
+
+  <script>
+    function openPopup(type) {
+      const popup = document.getElementById(`${type}-popup`);
+      popup.style.display = 'block';
+    }
+
+    function closePopup(type) {
+      const popup = document.getElementById(`${type}-popup`);
+      popup.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      ['lite-popup', 'full-popup'].forEach(id => {
+        const popup = document.getElementById(id);
+        if (event.target === popup) {
+          popup.style.display = 'none';
+        }
+      });
+    };
+  </script>
+
+</body>
+</html>
+
