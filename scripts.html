@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VantaScripts | Scripts</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background: #0f0f0f;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .scripts {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .badge {
+      background: #4c4cff;
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 1rem;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 1rem 0;
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 700px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .popup h2 {
+      margin-top: 0;
+    }
+    .close {
+      float: right;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: red;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    .buy-button {
+      background: #4c4cff;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to VantaScripts</h1>
+    <div class="scripts">
+      <div class="card" onclick="openPopup('lite')">
+        <div class="badge">Lite Script</div>
+        <p>Core features at an affordable price.</p>
+        <div class="price">$4.99</div>
+      </div>
+      <div class="card" onclick="openPopup('full')">
+        <div class="badge">Full Script</div>
+        <p>Advanced features and full automation suite.</p>
+        <div class="price">$12.99</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lite Popup -->
+  <div class="popup" id="lite-popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('lite')">&times;</span>
+      <h2>Lite Script Features - $4.99</h2>
+      <ul>
+        <li><strong>Recoil:</strong> Recoil On, Hipfire, Legit Mode, Full Auto, Control X/Y</li>
+        <li><strong>Settings:</strong> Zoom Hack, Game FOV, Sensitivity, ADS Sens</li>
+        <li><strong>Keybinds:</strong> Custom Bind Key</li>
+        <li><strong>Folder:</strong> Config Create/Delete/Save/Load/Reset</li>
+      </ul>
+      <button class="buy-button">Buy Now</button>
+    </div>
+  </div>
+
+  <!-- Full Popup -->
+  <div class="popup" id="full-popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('full')">&times;</span>
+      <h2>Full Script Features - $12.99</h2>
+      <ul>
+        <li><strong>Main:</strong> Humanization, Panic Button, Menu Color, Beep Sounds</li>
+        <li><strong>Settings:</strong> Anti AFK, Auto Upgrade, Auto Code Enterer</li>
+        <li><strong>Misc:</strong> Auto Weapon Detection, Script Hide/Show, Mini Overlay, Fast Planting, etc.</li>
+        <li><strong>Distance:</strong> Enable, Distance Length, Item Tracking</li>
+        <li><strong>Customize:</strong> Particle, Speed, Dots, Crouch Key</li>
+        <li><strong>Fish Bot:</strong> Fishing Automation, Salmon/Shark Filter, Gutting, Eating Intervals</li>
+        <li><strong>KeyBind & Config:</strong> Full Config and Keybind Support</li>
+      </ul>
+      <button class="buy-button">Buy Now</button>
+    </div>
+  </div>
+
+  <script>
+    function openPopup(type) {
+      document.getElementById(type + '-popup').style.display = 'flex';
+    }
+    function closePopup(type) {
+      document.getElementById(type + '-popup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
